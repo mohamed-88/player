@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2'; // Import Bar chart from react-chartjs-2
 import myImage from './img/increase.png';
 import myImage2 from './img/decrease.png';
+import myImage3 from './img/iconx.PNG';
+import myImage4 from './img/reset.png';
 import './App.css';
 
 // Import chart.js components
@@ -116,7 +118,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Player Counter with Chart</h1>
+        {/* <h1>Player Counter with Chart</h1> */}
+        <h1>﷽</h1>
 
         <div className="add-player">
           <input
@@ -135,9 +138,13 @@ function App() {
             key={index}
             className={`player ${player.count === highestCount && highestCount > 0 ? 'highlight' : ''} ${animatedIndex === index ? 'pulse' : ''}`}
           >
-            <button className="btn-remove" onClick={() => removePlayer(index)}>X</button> {/* Positioned in top-right */}
+            {/* <button className="btn-remove" onClick={() => removePlayer(index)}>X</button> Positioned in top-right */}
+            <button className="btn-remove" onClick={() => removePlayer(index)} style={{ border: "none", background: "none" }}>
+                <img src={myImage3} alt="Decrease" style={{ width: "30px", height: "30px" }} />
+              </button>
+
             <h2>{player.name}</h2>
-            <p className="created-date">Created: {player.createdAt}</p> {/* Display the created date */}
+            <p className="created-date">Date: {player.createdAt}</p> {/* Display the created date */}
             <div className="counter-display">
               <h3>{player.count}</h3>
             </div>
@@ -148,7 +155,10 @@ function App() {
               <button onClick={() => decrement(index)} style={{ border: "none", background: "none" }}>
                 <img src={myImage2} alt="Decrease" style={{ width: "70px", height: "70px" }} />
               </button>
-              <button onClick={() => reset(index)}>Reset</button>
+              {/* <button onClick={() => reset(index)}>Reset</button> */}
+              <button onClick={() => reset(index)} style={{ border: "none", background: "none" }}>
+                <img src={myImage4} alt="Decrease" style={{ width: "70px", height: "70px" }} />
+              </button>
             </div>
           </div>
         ))}

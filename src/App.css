@@ -53,7 +53,7 @@
   padding: 20px;
   margin: 10px;
   border-radius: 10px;
-  width: 200px;
+  width: 210px;
   transition: background-color 0.3s;
   position: relative; /* Add this to position the remove button relative to the player card */
 }
@@ -85,15 +85,20 @@
 }
 
 .btn-remove {
-  position: absolute;
-  top: 10px; /* Distance from the top of the card */
-  right: 10px; /* Distance from the right of the card */
+  /* position: absolute;
+  top: 10px; 
+  right: 10px; 
+  margin-right: -10px; 
   background-color: transparent;
   color: red;
+  font-weight: bold;
   font-size: 1.5rem;
   border: none;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: color 0.2s; */
+  position: absolute;
+  margin-left: 75px;
+  top: 10px;
 }
 
 .btn-remove:hover {
@@ -101,12 +106,18 @@
 }
 
 .highlight {
-  background-color: #4CAF50; 
+  background-color: #12562A;
+  /* background-color: #4CAF50; */
   border: 2px solid yellow;
 }
 
 .created-date {
   font-size: 12px;
-  color: lightgray;
+  color: rgb(255, 255, 255);
   margin-top: 5px;
+  font-weight: bold;
+}
+
+h1 {
+  font-style: arial;
 }
