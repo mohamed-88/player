@@ -4,7 +4,6 @@ import myImage from './img/increase.png';
 import myImage2 from './img/decrease.png';
 import './App.css';
 
-
 // Import chart.js components
 import {
   Chart as ChartJS,
@@ -18,7 +17,6 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-// Utility function to detect if the user is on a mobile device
 const isMobileDevice = () => {
   return /Mobi|Android/i.test(navigator.userAgent);
 };
@@ -48,12 +46,10 @@ function App() {
     setPlayers(updatedPlayers);
     setAnimatedIndex(index); // Trigger animation on this player
 
-    // Vibrate for 200ms if it's a mobile device
     if (isMobileDevice() && navigator.vibrate) {
       navigator.vibrate(200);
     }
 
-    // Remove the animation after it plays once
     setTimeout(() => setAnimatedIndex(null), 500); 
   };
 
@@ -64,7 +60,6 @@ function App() {
       setPlayers(updatedPlayers);
       setAnimatedIndex(index); 
 
-      // Vibrate for 200ms if it's a mobile device
       if (isMobileDevice() && navigator.vibrate) {
         navigator.vibrate(200);
       }
@@ -77,6 +72,11 @@ function App() {
     const updatedPlayers = [...players];
     updatedPlayers[index].count = 0;
     setPlayers(updatedPlayers);
+  };
+
+  const removePlayer = (index) => {
+    const updatedPlayers = players.filter((_, i) => i !== index); // Remove player by index
+    setPlayers(updatedPlayers); // Update state with the new players array
   };
 
   const highestCount = players.length > 0 ? Math.max(...players.map(player => player.count)) : 0;
@@ -123,26 +123,19 @@ function App() {
               key={index}
               className={`player ${player.count === highestCount && highestCount > 0 ? 'highlight' : ''} ${animatedIndex === index ? 'pulse' : ''}`}
             >
-              <h2>{player.name}</h2>
+              <div className="player-header">
+                <h2>{player.name}</h2>
+                <button className="btn-remove" onClick={() => removePlayer(index)}>X</button>
+              </div>
               <div className="counter-display">
                 <h3>{player.count}</h3>
               </div>
               <div className="button-container">
-                {/* <button onClick={() => increment(index)}>Increase</button> */}
                 <button onClick={() => increment(index)} style={{ border: "none", background: "none" }}>
-                <img 
-                  src={myImage} 
-                  alt="button icon" 
-                  style={{ width: "70px", height: "70px" }} // قەبارەی وێنە دیاری دەکات
-                />
+                  <img src={myImage} alt="Increase" style={{ width: "70px", height: "70px" }} />
                 </button>
-                {/* <button onClick={() => decrement(index)}>Decrease</button> */}
                 <button onClick={() => decrement(index)} style={{ border: "none", background: "none" }}>
-                <img 
-                  src={myImage2} 
-                  alt="button icon" 
-                  style={{ width: "70px", height: "70px" }} // قەبارەی وێنە دیاری دەکات
-                />
+                  <img src={myImage2} alt="Decrease" style={{ width: "70px", height: "70px" }} />
                 </button>
                 <button onClick={() => reset(index)}>Reset</button>
               </div>
