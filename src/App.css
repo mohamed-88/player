@@ -55,6 +55,7 @@
   border-radius: 10px;
   width: 200px;
   transition: background-color 0.3s;
+  position: relative; /* Add this to position the remove button relative to the player card */
 }
 
 .highlight {
@@ -84,10 +85,22 @@
 }
 
 .btn-remove {
+  position: absolute;
+  top: 10px; /* Distance from the top of the card */
+  right: 10px; /* Distance from the right of the card */
   background-color: transparent;
   color: red;
   font-size: 1.5rem;
   border: none;
   cursor: pointer;
-  /* margin-left: 180px; */
+  transition: color 0.2s;
+}
+
+.btn-remove:hover {
+  color: darkred; /* Change color when hovered */
+}
+
+.highlight {
+  background-color: #4CAF50; 
+  border: 2px solid yellow;
 }

@@ -118,29 +118,28 @@ function App() {
         </div>
 
         <div className="player-list">
-          {players.map((player, index) => (
-            <div
-              key={index}
-              className={`player ${player.count === highestCount && highestCount > 0 ? 'highlight' : ''} ${animatedIndex === index ? 'pulse' : ''}`}
-            >
-              <div className="player-header">
-                <h2>{player.name}</h2>
-                <button className="btn-remove" onClick={() => removePlayer(index)}>X</button>
-              </div>
-              <div className="counter-display">
-                <h3>{player.count}</h3>
-              </div>
-              <div className="button-container">
-                <button onClick={() => increment(index)} style={{ border: "none", background: "none" }}>
-                  <img src={myImage} alt="Increase" style={{ width: "70px", height: "70px" }} />
-                </button>
-                <button onClick={() => decrement(index)} style={{ border: "none", background: "none" }}>
-                  <img src={myImage2} alt="Decrease" style={{ width: "70px", height: "70px" }} />
-                </button>
-                <button onClick={() => reset(index)}>Reset</button>
-              </div>
+        {players.map((player, index) => (
+          <div
+            key={index}
+            className={`player ${player.count === highestCount && highestCount > 0 ? 'highlight' : ''} ${animatedIndex === index ? 'pulse' : ''}`}
+          >
+            <button className="btn-remove" onClick={() => removePlayer(index)}>X</button> {/* Positioned in top-right */}
+            <h2>{player.name}</h2>
+            <div className="counter-display">
+              <h3>{player.count}</h3>
             </div>
-          ))}
+            <div className="button-container">
+              <button onClick={() => increment(index)} style={{ border: "none", background: "none" }}>
+                <img src={myImage} alt="Increase" style={{ width: "70px", height: "70px" }} />
+              </button>
+              <button onClick={() => decrement(index)} style={{ border: "none", background: "none" }}>
+                <img src={myImage2} alt="Decrease" style={{ width: "70px", height: "70px" }} />
+              </button>
+              <button onClick={() => reset(index)}>Reset</button>
+            </div>
+          </div>
+        ))}
+
         </div>
 
         {players.length > 0 && (
