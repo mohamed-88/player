@@ -36,8 +36,19 @@ function App() {
 
   const addPlayer = () => {
     if (newPlayerName.trim() === "") return; 
-    setPlayers([...players, { name: newPlayerName, count: 0 }]);
+    const newPlayer = {
+      name: newPlayerName,
+      count: 0,
+      createdAt: new Date().toLocaleString() // Add the current date and time
+    };
+    setPlayers([...players, newPlayer]);
     setNewPlayerName(""); 
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      addPlayer();
+    }
   };
 
   const increment = (index) => {
@@ -113,6 +124,7 @@ function App() {
             placeholder="Enter player's name"
             value={newPlayerName}
             onChange={(e) => setNewPlayerName(e.target.value)}
+            onKeyDown={handleKeyDown} // Add this event handler to detect Enter key
           />
           <button className="btn-add" onClick={addPlayer}>Add Player</button>
         </div>
@@ -125,6 +137,7 @@ function App() {
           >
             <button className="btn-remove" onClick={() => removePlayer(index)}>X</button> {/* Positioned in top-right */}
             <h2>{player.name}</h2>
+            <p className="created-date">Created: {player.createdAt}</p> {/* Display the created date */}
             <div className="counter-display">
               <h3>{player.count}</h3>
             </div>

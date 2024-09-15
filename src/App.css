@@ -104,3 +104,9 @@
   background-color: #4CAF50; 
   border: 2px solid yellow;
 }
+
+.created-date {
+  font-size: 12px;
+  color: lightgray;
+  margin-top: 5px;
+}
