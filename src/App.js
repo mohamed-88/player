@@ -5,6 +5,7 @@ import myImage2 from './img/decrease.png';
 import myImage3 from './img/iconx.PNG';
 import myImage4 from './img/reset.png';
 import './App.css';
+import './script';
 
 // Import chart.js components
 import {
@@ -116,12 +117,20 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className='exmpele'>
+      <div className="App">
       <header className="App-header">
         {/* <h1>Player Counter with Chart</h1> */}
         <h1>﷽</h1>
 
         <div className="add-player">
+          {/* <input
+            type="text"
+            placeholder="ناڤەکی بنڤێسە"
+            value={newPlayerName}
+            onChange={(e) => setNewPlayerName(e.target.value)}
+            onKeyDown={handleKeyDown} // Add this event handler to detect Enter key
+          /> */}
           <input
             type="text"
             placeholder="Enter player's name"
@@ -129,7 +138,9 @@ function App() {
             onChange={(e) => setNewPlayerName(e.target.value)}
             onKeyDown={handleKeyDown} // Add this event handler to detect Enter key
           />
-          <button className="btn-add" onClick={addPlayer}>Add Player</button>
+          <button onClick={addPlayer} class="custom-btn btn-11"><div class="dot1">Add Player</div></button>
+          {/* <button className="btn-add" onClick={addPlayer}>Add Player</button> */}
+          {/* <button className="btn-add" onClick={addPlayer}>زێدە بکە</button> */}
         </div>
 
         <div className="player-list">
@@ -149,16 +160,37 @@ function App() {
               <h3>{player.count}</h3>
             </div>
             <div className="button-container">
-              <button onClick={() => increment(index)} style={{ border: "none", background: "none" }}>
+              {/* <button onClick={() => increment(index)} style={{ border: "none", background: "none" }}>
                 <img src={myImage} alt="Increase" style={{ width: "70px", height: "70px" }} />
-              </button>
-              <button onClick={() => decrement(index)} style={{ border: "none", background: "none" }}>
+              </button> */}
+
+              {/* <button onClick={() => increment(index)} class="custom-btn12 btn-13"><div class="dot">+</div></button> */}
+              <button onClick={() => decrement(index)} class="custom-btn12 btn-13"><div class="dot">-</div></button>
+
+
+
+
+
+
+              {/* <button onClick={() => decrement(index)} style={{ border: "none", background: "none" }}>
                 <img src={myImage2} alt="Decrease" style={{ width: "70px", height: "70px" }} />
-              </button>
+              </button> */}
+
+              {/* <button onClick={() => decrement(index)} class="custom-btn12 btn-13"><div class="dot">-</div></button> */}
+              <button onClick={() => increment(index)} class="custom-btn12 btn-13"><div class="dot">+</div></button>
+
+
+
+
+
+
+
+              <button onClick={() => reset(index)} class="custom-btn12 btn-13"><div class="dot">↻</div></button>
+
               {/* <button onClick={() => reset(index)}>Reset</button> */}
-              <button onClick={() => reset(index)} style={{ border: "none", background: "none" }}>
+              {/* <button onClick={() => reset(index)} style={{ border: "none", background: "none" }}>
                 <img src={myImage4} alt="Decrease" style={{ width: "70px", height: "70px" }} />
-              </button>
+              </button> */}
             </div>
           </div>
         ))}
@@ -171,6 +203,11 @@ function App() {
           </div>
         )}
       </header>
+      {/* <p>Copyright©2024 All Rights Reserved By:<a href="##">Mohamed</a></p> */}
+      <p className="text">
+	Copyright&copy;2025 All Rights Reserved By:<a target="_blank" href="https://instagram.com/mohamed__e__ahmed?igshid=YmMyMTA2M2Y=">Mohamed</a>
+  </p>
+    </div>
     </div>
   );
 }
