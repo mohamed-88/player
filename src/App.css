@@ -119,8 +119,9 @@ h1 {
   font-size: auto;
   margin-top: auto;
   color: gray;
-  font-size: 15px;
-  margin-bottom: 30px;
+  font-size: 12px;
+  margin-bottom: 0;
+  font-family: "Lucida Console", "Courier New", monospace;
 }
 
 a {
