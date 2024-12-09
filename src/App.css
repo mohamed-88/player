@@ -41,6 +41,7 @@
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
+  direction: rtl;
 }
 
 .player-list {
@@ -56,7 +57,7 @@
   border-radius: 10px;
   width: 210px;
   transition: background-color 0.3s;
-  position: relative; /* Add this to position the remove button relative to the player card */
+  position: relative;
 }
 
 .highlight {
@@ -86,29 +87,17 @@
 }
 
 .btn-remove {
-  /* position: absolute;
-  top: 10px; 
-  right: 10px; 
-  margin-right: -10px; 
-  background-color: transparent;
-  color: red;
-  font-weight: bold;
-  font-size: 1.5rem;
-  border: none;
-  cursor: pointer;
-  transition: color 0.2s; */
   position: absolute;
   margin-left: 75px;
   top: 10px;
 }
 
 .btn-remove:hover {
-  color: darkred; /* Change color when hovered */
+  color: darkred;
 }
 
 .highlight {
   background: linear-gradient(0deg, rgba(24,57,43,1) 0%, rgba(20,69,47,1) 25%, rgba(15,81,50,1) 100%);
-  /* background-color: #4CAF50; */
   border: 2px solid yellow;
 }
 
@@ -119,24 +108,32 @@
   font-weight: bold;
 }
 
-/* input {
-  direction: rtl;
-} */
-
 h1 {
   font-style: arial;
+  color: #fbfbfb;
+  margin-top: auto;
+  margin-top: 20px;
 }
 
 .text {
+  font-size: auto;
+  margin-top: auto;
+  color: gray;
   font-size: 15px;
-  color: #282c34;
+  margin-bottom: 30px;
 }
 
 a {
   text-decoration: none;
-  color: #282c34;
+  color: gray;
 }
 
+.description-box {
+  font-family: 'Noto Sans Kurdish', 'Kurdish Web', 'Arial', sans-serif;
+  color: #bab9b9;
+  margin-top: auto;
+  margin-top: 100px;
+}
 
 .dot {
   font-size: 40px;
@@ -145,8 +142,9 @@ a {
 
 .dot1 {
   margin-top: 0;
-  font-size: 13px;
+  font-size: auto;
   font-weight: bold;
+  font-family: 'Noto Sans Kurdish', 'Kurdish Web', 'Arial', sans-serif;
 }
 
 /* Butoon */
@@ -190,12 +188,8 @@ a {
   outline: none;
 }
 
-/* 11 */
-
 .btn-13 {
   border: none;
-  /* background: rgb(251,33,117);
-  background: linear-gradient(0deg, rgba(251,33,117,1) 0%, rgba(234,76,137,1) 100%); */
   background: #77181e;
   background: linear-gradient(0deg, rgba(30,96,145,1) 50%, rgba(26,117,159,1) 100%);
   color: #fff;
@@ -203,8 +197,6 @@ a {
 
 .btn-11 {
   border: none;
-  /* background: rgb(251,33,117);
-  background: linear-gradient(0deg, rgba(251,33,117,1) 0%, rgba(234,76,137,1) 100%); */
   background: #184E77;
   background: linear-gradient(0deg, rgba(30,96,145,1) 50%, rgba(26,117,159,1) 100%);
   color: #fff;
@@ -236,10 +228,13 @@ a {
     inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
 }
 
-
-@-webkit-keyframes shiny-btn1 {
-    0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
-    80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
-    81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
-    100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+.custom-btn {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
 }

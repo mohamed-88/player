@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Bar } from 'react-chartjs-2'; // Import Bar chart from react-chartjs-2
-import myImage from './img/increase.png';
-import myImage2 from './img/decrease.png';
+import { Bar } from 'react-chartjs-2';
 import myImage3 from './img/iconx.PNG';
-import myImage4 from './img/reset.png';
 import './App.css';
 import './script';
 
-// Import chart.js components
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -31,7 +28,7 @@ function App() {
   });
 
   const [newPlayerName, setNewPlayerName] = useState("");
-  const [animatedIndex, setAnimatedIndex] = useState(null); // State to track which player gets animated
+  const [animatedIndex, setAnimatedIndex] = useState(null);
 
   useEffect(() => {
     localStorage.setItem('players', JSON.stringify(players));
@@ -42,7 +39,7 @@ function App() {
     const newPlayer = {
       name: newPlayerName,
       count: 0,
-      createdAt: new Date().toLocaleString() // Add the current date and time
+      createdAt: new Date().toLocaleString()
     };
     setPlayers([...players, newPlayer]);
     setNewPlayerName(""); 
@@ -58,7 +55,7 @@ function App() {
     const updatedPlayers = [...players];
     updatedPlayers[index].count += 1;
     setPlayers(updatedPlayers);
-    setAnimatedIndex(index); // Trigger animation on this player
+    setAnimatedIndex(index);
 
     if (isMobileDevice() && navigator.vibrate) {
       navigator.vibrate(200);
@@ -89,8 +86,8 @@ function App() {
   };
 
   const removePlayer = (index) => {
-    const updatedPlayers = players.filter((_, i) => i !== index); // Remove player by index
-    setPlayers(updatedPlayers); // Update state with the new players array
+    const updatedPlayers = players.filter((_, i) => i !== index);
+    setPlayers(updatedPlayers);
   };
 
   const highestCount = players.length > 0 ? Math.max(...players.map(player => player.count)) : 0;
@@ -99,7 +96,7 @@ function App() {
     labels: players.map(player => player.name), 
     datasets: [
       {
-        label: 'Player Scores',
+        label: 'نمرەیا تە',
         data: players.map(player => player.count), 
         backgroundColor: 'rgba(75, 192, 192, 0.2)', 
         borderColor: 'rgba(75, 192, 192, 1)', 
@@ -120,27 +117,19 @@ function App() {
     <div className='exmpele'>
       <div className="App">
       <header className="App-header">
-        {/* <h1>Player Counter with Chart</h1> */}
+      <div className="description-box">
+  <h2>توو بخێرهاتی بوو ئەپا تەسبیح</h2>
+</div>
         <h1>﷽</h1>
-
         <div className="add-player">
-          {/* <input
-            type="text"
-            placeholder="ناڤەکی بنڤێسە"
-            value={newPlayerName}
-            onChange={(e) => setNewPlayerName(e.target.value)}
-            onKeyDown={handleKeyDown} // Add this event handler to detect Enter key
-          /> */}
           <input
             type="text"
-            placeholder="Enter player's name"
+            placeholder=" دوعاء یەکێ فێرە بنڤێسە..."
             value={newPlayerName}
             onChange={(e) => setNewPlayerName(e.target.value)}
-            onKeyDown={handleKeyDown} // Add this event handler to detect Enter key
+            onKeyDown={handleKeyDown}
           />
-          <button onClick={addPlayer} class="custom-btn btn-11"><div class="dot1">Add Player</div></button>
-          {/* <button className="btn-add" onClick={addPlayer}>Add Player</button> */}
-          {/* <button className="btn-add" onClick={addPlayer}>زێدە بکە</button> */}
+          <button onClick={addPlayer} class="custom-btn btn-11"><div class="dot1">لڤێرە زێدە بکە</div></button>
         </div>
 
         <div className="player-list">
@@ -149,48 +138,20 @@ function App() {
             key={index}
             className={`player ${player.count === highestCount && highestCount > 0 ? 'highlight' : ''} ${animatedIndex === index ? 'pulse' : ''}`}
           >
-            {/* <button className="btn-remove" onClick={() => removePlayer(index)}>X</button> Positioned in top-right */}
             <button className="btn-remove" onClick={() => removePlayer(index)} style={{ border: "none", background: "none" }}>
                 <img src={myImage3} alt="Decrease" style={{ width: "30px", height: "30px" }} />
               </button>
 
             <h2>{player.name}</h2>
-            <p className="created-date">Date: {player.createdAt}</p> {/* Display the created date */}
+            <p className="created-date">Date: {player.createdAt}</p>
             <div className="counter-display">
               <h3>{player.count}</h3>
             </div>
             <div className="button-container">
-              {/* <button onClick={() => increment(index)} style={{ border: "none", background: "none" }}>
-                <img src={myImage} alt="Increase" style={{ width: "70px", height: "70px" }} />
-              </button> */}
-
-              {/* <button onClick={() => increment(index)} class="custom-btn12 btn-13"><div class="dot">+</div></button> */}
+              
               <button onClick={() => decrement(index)} class="custom-btn12 btn-13"><div class="dot">-</div></button>
-
-
-
-
-
-
-              {/* <button onClick={() => decrement(index)} style={{ border: "none", background: "none" }}>
-                <img src={myImage2} alt="Decrease" style={{ width: "70px", height: "70px" }} />
-              </button> */}
-
-              {/* <button onClick={() => decrement(index)} class="custom-btn12 btn-13"><div class="dot">-</div></button> */}
               <button onClick={() => increment(index)} class="custom-btn12 btn-13"><div class="dot">+</div></button>
-
-
-
-
-
-
-
               <button onClick={() => reset(index)} class="custom-btn12 btn-13"><div class="dot">↻</div></button>
-
-              {/* <button onClick={() => reset(index)}>Reset</button> */}
-              {/* <button onClick={() => reset(index)} style={{ border: "none", background: "none" }}>
-                <img src={myImage4} alt="Decrease" style={{ width: "70px", height: "70px" }} />
-              </button> */}
             </div>
           </div>
         ))}
@@ -202,11 +163,10 @@ function App() {
             <Bar data={chartData} options={chartOptions} />
           </div>
         )}
-      </header>
-      {/* <p>Copyright©2024 All Rights Reserved By:<a href="##">Mohamed</a></p> */}
-      <p className="text">
+        <p className="text">
 	Copyright&copy;2025 All Rights Reserved By:<a target="_blank" href="https://instagram.com/mohamed__e__ahmed?igshid=YmMyMTA2M2Y=">Mohamed</a>
   </p>
+      </header>
     </div>
     </div>
   );
