@@ -166,7 +166,7 @@ function App() {
         <p className="text">
 	Copyright&copy;2025 All Rights Reserved By:<a target="_blank" href="https://instagram.com/mohamed__e__ahmed?igshid=YmMyMTA2M2Y=">Mohamed</a>
   </p>
-      <p style={{ fontSize: '10px', marginBottom: '20px', fontFamily: '"Lucida Console", "Courier New", monospace' }}>Version: 1.0.0</p>
+      <p style={{ fontSize: '10px', marginBottom: '20px', fontFamily: '"Lucida Console", "Courier New", monospace' }}>Version: 1.0.1</p>
       </header>
     </div>
     </div>
